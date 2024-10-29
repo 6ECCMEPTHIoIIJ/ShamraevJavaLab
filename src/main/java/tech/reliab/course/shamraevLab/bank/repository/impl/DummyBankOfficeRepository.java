@@ -1,6 +1,7 @@
 package tech.reliab.course.shamraevLab.bank.repository.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import tech.reliab.course.shamraevLab.bank.entity.Bank;
 import tech.reliab.course.shamraevLab.bank.entity.BankOffice;
 import tech.reliab.course.shamraevLab.bank.enums.BankOfficeStatus;
@@ -14,6 +15,7 @@ import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+@Repository
 @RequiredArgsConstructor
 public class DummyBankOfficeRepository implements BankOfficeRepository {
     private static int bankOfficeId = 0;

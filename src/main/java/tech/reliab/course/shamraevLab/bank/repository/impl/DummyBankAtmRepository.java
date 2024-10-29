@@ -1,6 +1,7 @@
 package tech.reliab.course.shamraevLab.bank.repository.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import tech.reliab.course.shamraevLab.bank.entity.Bank;
 import tech.reliab.course.shamraevLab.bank.entity.BankAtm;
 import tech.reliab.course.shamraevLab.bank.enums.BankAtmStatus;
@@ -16,6 +17,7 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+@Repository
 @RequiredArgsConstructor
 public class DummyBankAtmRepository implements BankAtmRepository {
     private static int bankAtmId;

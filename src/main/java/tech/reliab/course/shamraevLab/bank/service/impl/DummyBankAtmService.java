@@ -1,6 +1,8 @@
 package tech.reliab.course.shamraevLab.bank.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import tech.reliab.course.shamraevLab.bank.entity.Bank;
 import tech.reliab.course.shamraevLab.bank.entity.CreditAccount;
 import tech.reliab.course.shamraevLab.bank.entity.PaymentAccount;
@@ -14,6 +16,8 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 import java.util.List;
 
+@Service
+@Slf4j
 @RequiredArgsConstructor
 public class DummyBankAtmService implements BankAtmService {
     private static final int BANKS_COUNT = 5;
@@ -34,19 +38,20 @@ public class DummyBankAtmService implements BankAtmService {
     @Override
     public void requestBankInfo() {
         var scanner = new Scanner(System.in);
-        System.out.println("Введите ID банка");
+        log.info("Введите ID банка");
         int id = scanner.nextInt();
         var bank = bankRepository.getBankById(id);
         if (bank.isEmpty()) {
-            System.out.println("Банк не найден");
+            log.warn("Банк не найден");
             return;
         }
 
-        System.out.println(bank.get());
-        System.out.println(bankAtmRepository.getAllBankAtmsByBank(bank.get()));
-        System.out.println(bankOfficeRepository.getAllBankOfficesByBank(bank.get()));
-        System.out.println(employeeRepository.getAllEmployeesByBank(bank.get()));
-        System.out.println(userRepository.getUsersByBank(bank.get()));
+        log.info("[[ Информация о банке ]]");
+        log.info(bank.get().toString());
+        log.info(bankAtmRepository.getAllBankAtmsByBank(bank.get()).toString());
+        log.info(bankOfficeRepository.getAllBankOfficesByBank(bank.get()).toString());
+        log.info(employeeRepository.getAllEmployeesByBank(bank.get()).toString());
+        log.info(userRepository.getUsersByBank(bank.get()).toString());
     }
 
 

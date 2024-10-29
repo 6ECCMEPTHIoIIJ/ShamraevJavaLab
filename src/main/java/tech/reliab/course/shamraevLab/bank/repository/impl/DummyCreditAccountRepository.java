@@ -1,6 +1,7 @@
 package tech.reliab.course.shamraevLab.bank.repository.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import tech.reliab.course.shamraevLab.bank.entity.*;
 import tech.reliab.course.shamraevLab.bank.repository.CreditAccountRepository;
 import tech.reliab.course.shamraevLab.bank.repository.UserRepository;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Repository
 @RequiredArgsConstructor
 public class DummyCreditAccountRepository implements CreditAccountRepository {
     private static int creditAccountId;

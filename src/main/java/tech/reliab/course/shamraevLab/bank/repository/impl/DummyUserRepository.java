@@ -1,6 +1,7 @@
 package tech.reliab.course.shamraevLab.bank.repository.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import tech.reliab.course.shamraevLab.bank.entity.Bank;
 import tech.reliab.course.shamraevLab.bank.entity.CreditAccount;
 import tech.reliab.course.shamraevLab.bank.entity.PaymentAccount;
@@ -10,6 +11,8 @@ import tech.reliab.course.shamraevLab.bank.repository.UserRepository;
 import java.time.LocalDate;
 import java.util.*;
 
+@Repository
+@RequiredArgsConstructor
 public class DummyUserRepository implements UserRepository {
     private static final int MAX_MONTHLY_INCOME = 10000;
     private static final double DIVIDER = 1000.0;

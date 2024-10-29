@@ -1,6 +1,7 @@
 package tech.reliab.course.shamraevLab.bank.repository.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import tech.reliab.course.shamraevLab.bank.entity.Bank;
 import tech.reliab.course.shamraevLab.bank.repository.BankRepository;
 import tech.reliab.course.shamraevLab.bank.repository.UserRepository;
@@ -11,6 +12,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.function.Predicate;
 
+@Repository
 @RequiredArgsConstructor
 public class DummyBankRepository implements BankRepository {
     private final List<Bank> banks = new ArrayList<>();

@@ -1,6 +1,7 @@
 package tech.reliab.course.shamraevLab.bank.repository.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import tech.reliab.course.shamraevLab.bank.entity.Bank;
 import tech.reliab.course.shamraevLab.bank.entity.PaymentAccount;
 import tech.reliab.course.shamraevLab.bank.entity.User;
@@ -14,6 +15,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Repository
 @RequiredArgsConstructor
 public class DummyPaymentAccountRepository implements PaymentAccountRepository {
     private static int paymentAccountId;
