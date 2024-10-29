@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@ToString
+@ToString(exclude = {"banks", "creditAccounts", "paymentAccounts"})
 public class User {
     private int id;
     private String fullName;

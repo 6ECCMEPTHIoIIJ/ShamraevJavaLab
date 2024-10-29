@@ -37,13 +37,14 @@ public class Bank {
         private static final int MAX_MONEY = 1000000;
         private static final double MAX_INTEREST_RATE = 20.0;
         private static final double BASE_INTEREST_RATE = 5.0;
+        private static int idCounter = 0;
 
         private static final Random random = new Random();
 
         private String name;
 
         public Bank createBank() {
-            var id = random.nextInt();
+            var id = idCounter++;
             var rating = random.nextInt(MAX_RATING + 1);
             var totalMoney = random.nextInt(MAX_MONEY + 1);
             var interestRate = getInterestRate(rating);
@@ -58,5 +59,6 @@ public class Bank {
         private static double getInterestRate(int rating) {
             return BASE_INTEREST_RATE + (MAX_INTEREST_RATE - BASE_INTEREST_RATE) * (MAX_RATING - rating) / MAX_RATING;
         }
+        
     }
 }

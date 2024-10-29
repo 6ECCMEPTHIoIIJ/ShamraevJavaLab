@@ -4,7 +4,6 @@ import jakarta.validation.constraints.Min;
 import lombok.Data;
 import lombok.ToString;
 
-import tech.reliab.course.shamraevLab.bank.entity.Bank;
 import tech.reliab.course.shamraevLab.bank.enums.BankOfficeStatus;
 
 @ToString

@@ -1,10 +1,12 @@
 package tech.reliab.course.shamraevLab.bank.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
-@Data
-@ToString
+@Getter
+@Setter
+@ToString(exclude = {"user", "bank"})
 public class PaymentAccount {
     private int id;
     private User user;

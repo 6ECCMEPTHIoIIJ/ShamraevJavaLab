@@ -1,12 +1,14 @@
 package tech.reliab.course.shamraevLab.bank.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
 
-@Data
-@ToString
+@Getter
+@Setter
+@ToString(exclude = {"user", "bank", "employee", "paymentAccount"})
 public class CreditAccount {
 
     private int id;
