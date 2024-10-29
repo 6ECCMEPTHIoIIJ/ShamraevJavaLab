@@ -40,10 +40,7 @@ public class DummyMainMenuService implements MainMenuService, ApplicationListene
                     log.warn("Неизвестная опция");
                     break;
             }
-
         }
-
-        CloseApplication();
     }
 
     private static boolean SelectOption() {
@@ -61,10 +58,11 @@ public class DummyMainMenuService implements MainMenuService, ApplicationListene
     public void onApplicationEvent(ApplicationReadyEvent event) {
         log.info("ДОБРО ПОЖАЛОВАТЬ");
         run();
+        log.info("ДО СВИДАНИЯ");
+        CloseApplication();
     }
 
     private void CloseApplication() {
-        log.info("ДО СВИДАНИЯ");
         if (context instanceof ConfigurableApplicationContext) {
             ((ConfigurableApplicationContext) context).close();
         }
