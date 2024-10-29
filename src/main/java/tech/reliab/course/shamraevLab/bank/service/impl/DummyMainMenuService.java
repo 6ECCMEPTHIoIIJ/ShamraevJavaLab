@@ -28,7 +28,6 @@ public class DummyMainMenuService implements MainMenuService, ApplicationListene
 
     @Override
     public void run() {
-        bankAtmService.initializeBanks();
         while (SelectOption()) {
             switch (option) {
                 case BANK_INFO:
@@ -36,6 +35,9 @@ public class DummyMainMenuService implements MainMenuService, ApplicationListene
                     break;
                 case USER_INFO:
                     userService.requestUserInfo();
+                    break;
+                case UNKNOWN:
+                    log.warn("Неизвестная опция");
                     break;
             }
 
@@ -71,6 +73,7 @@ public class DummyMainMenuService implements MainMenuService, ApplicationListene
 
     @Getter
     enum Option {
+        UNKNOWN(-1),
         BANK_INFO(1),
         USER_INFO(2),
         EXIT(3);
@@ -88,7 +91,7 @@ public class DummyMainMenuService implements MainMenuService, ApplicationListene
                     return option;
                 }
             }
-            throw new IllegalArgumentException("No such option");
+            return UNKNOWN;
         }
     }
 }

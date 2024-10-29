@@ -2,6 +2,7 @@ package tech.reliab.course.shamraevLab.bank.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Service;
 import tech.reliab.course.shamraevLab.bank.entity.Bank;
 import tech.reliab.course.shamraevLab.bank.entity.CreditAccount;
@@ -19,7 +20,7 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class DummyBankAtmService implements BankAtmService {
+public class DummyBankAtmService implements BankAtmService, InitializingBean {
     private static final int BANKS_COUNT = 5;
     private final UserRepository userRepository;
     private final BankRepository bankRepository;
@@ -28,12 +29,6 @@ public class DummyBankAtmService implements BankAtmService {
     private final BankAtmRepository bankAtmRepository;
     private final PaymentAccountRepository paymentAccountRepository;
     private final CreditAccountRepository creditAccountRepository;
-
-    @Override
-    public void initializeBanks() {
-        var bankNames = IntStream.range(0, BANKS_COUNT).boxed().map((index) -> String.format("Супер банк %d", index));
-        bankNames.forEach(this::initializeBankInfo);
-    }
 
     @Override
     public void requestBankInfo() {
@@ -145,5 +140,11 @@ public class DummyBankAtmService implements BankAtmService {
                     paymentAccount
             );
         }
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        var bankNames = IntStream.range(0, BANKS_COUNT).boxed().map((index) -> String.format("Имба банк %d", index));
+        bankNames.forEach(this::initializeBankInfo);
     }
 }
