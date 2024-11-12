@@ -55,9 +55,9 @@ public class DummyBankOfficeRepository implements BankOfficeRepository {
     }
 
     @Override
-    public void updateBankOffice(int id, String name) {
+    public void updateBankOffice(int id, BankOfficeStatus status) {
         BankOffice bankOffice = getBankOfficeIfExists(id);
-        bankOffice.setName(name);
+        bankOffice.setStatus(status);
     }
 
     @Override

@@ -4,6 +4,7 @@ import tech.reliab.course.shamraevLab.bank.entity.Bank;
 import tech.reliab.course.shamraevLab.bank.entity.BankAtm;
 import tech.reliab.course.shamraevLab.bank.entity.BankOffice;
 import tech.reliab.course.shamraevLab.bank.entity.Employee;
+import tech.reliab.course.shamraevLab.bank.enums.BankAtmStatus;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +20,7 @@ public interface BankAtmRepository {
 
     List<BankAtm> getAllBankAtmsByBank(Bank bank);
 
-    void updateBankAtm(int id, String name);
+    void updateBankAtm(int id, BankAtmStatus status);
 
     void deleteBankAtm(int id);
 }

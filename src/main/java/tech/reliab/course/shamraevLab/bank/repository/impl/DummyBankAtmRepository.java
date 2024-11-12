@@ -57,9 +57,9 @@ public class DummyBankAtmRepository implements BankAtmRepository {
     }
 
     @Override
-    public void updateBankAtm(int id, String name) {
+    public void updateBankAtm(int id, BankAtmStatus status) {
         BankAtm bankAtm = getBankAtmIfExists(id);
-        bankAtm.setName(name);
+        bankAtm.setStatus(status);
     }
 
     @Override
